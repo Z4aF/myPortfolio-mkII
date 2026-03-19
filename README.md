@@ -73,20 +73,21 @@ Infrastructure:
 │   └── assets/
 │
 ├── backend/
-│    ├── cloudfront.tf
-│    ├── cloudfront_waf.tf
-│    ├── s3.tf
-│    ├── provider.tf
-│    ├── variables.tf
-│    ├── outputs.tf
-│    └── README.md
-│   ├── visitor-counter/
-│   │   ├── lambda/
-│   │   │   ├── counter.py
-│   │   │   └── admin_visitors.py
-│   │   ├── apigateway.tf
-│   │   ├── dynamodb.tf
-│   │   ├── iam.tf
-│   │   ├── lambda.tf
-│   │   ├── outputs.tf
-│   │   └── variables.tf
+│   ├── cloudfront.tf
+│   ├── cloudfront_waf.tf
+│   ├── s3.tf
+│   ├── provider.tf
+│   ├── variables.tf
+│   ├── outputs.tf
+│   ├── README.md
+│
+│   └── visitor-counter/
+│       ├── lambda/
+│       │   ├── counter.py
+│       │   └── admin_visitors.py
+│       ├── apigateway.tf
+│       ├── dynamodb.tf
+│       ├── iam.tf
+│       ├── lambda.tf
+│       ├── outputs.tf
+│       └── variables.tf
