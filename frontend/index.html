@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- 🌟 Side Menu Button -->
+  
+  <div id="menu-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- 🌟 Sliding Side Menu -->
+  <nav id="side-menu">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact-anchor">Contacts</a></li>
+    </ul>
+
+      <hr>
+
+    <p>Visitors: <span id="counter">Loading...</span></p>
+    
+  </nav>
+
+  <!-- 🎥 Fixed Home Video Background -->
+   
+  <div class="video-section home fixed-center">
+    <video autoplay muted loop id="home-video">
+      <source src="assets/background.mp4" type="video/mp4" />
+    </video>
+
+    <div class="snap-container">
+      <section id="home" class="section">
+        <div class="content center">
+          <h1 class="text-scale">
+            <span style="--i:1; animation-name: scaleFromRight;">Z</span>
+            <a href="admin.html" class="lambda-link" aria-label="Open admin page">
+              <span class="lambda" style="--i:8; animation-name: scaleFromCenter;">&lambda;</span>
+            </a>
+            <span style="--i:5; animation-name: scaleFromLeft;">F</span>
+          </h1>
+          <p class="computer-engineer">
+            <span class="word-wrap">
+              <span class="word computer">Playground</span>
+            </span>
+          </p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- 👤 About Section -->
+  <section id="about" class="section white-bg">
+    <div class="content">
+        <p class="multi-type">
+          <span style="--d:0s">About me: Hi, My name is Paolo Dominic</span>
+          <span style="--d:3s">Zafra, but I prefer to be called Zaf.</span>
+          <span style="--d:8s">I am a computer engineering graduate</span>
+          <span style="--d:11s">currently seeking a role in</span>
+          <span style="--d:14s">the Tech Industry.</span>
+          <span style="--d:17s">I love doing the software part of being</span>
+          <span style="--d:20s">a CpE student, which are mostly coding</span>
+          <span style="--d:23s">and just being in front of a computer.</span>
+          <span style="--d:27s">If I am going to rank the subjects I</span>
+          <span style="--d:30s">Studied back then it would be</span>
+          <span style="--d:33s">software or programming,</span>
+          <span style="--d:36s">problem -solving part of</span>
+          <span style="--d:39s">engineering mathematics,</span>
+          <span style="--d:42s">and hardware or electronics.</span>
+        </p>
+    </div>
+  </section>
+
+  <!-- 💻 Projects & 📞 Contact with FIXED video background -->
+  <div class="video-section projects">
+    <video autoplay muted loop id="projects-video">
+      <source src="assets/background.mp4" type="video/mp4" />
+    </video>
+
+    <section id="projects" class="scroll-delay"></section>
+
+    <section id="contact-anchor"></section>
+
+    <!-- Contact anchor -->
+    <section id="contact"></section>
+    
+    <section class="scroll-container">
+      <div class="stuck-grid">
+        <div class="grid-item">Sumo -bot MKII </div> <!-- 1 -->
+
+        <div class="grid-item special"><b>Contacts</b></div> <!-- 11 -->
+
+        <div class="grid-item">WiVou: Wi-Fi Voucher Dispenser</div> <!-- 3 -->
+
+        <div class="grid-item"> <img src="images/12.webp"> </div> <!-- 4 -->
+
+        <div class="grid-item"> <img src="images/16.webp"> </div> <!-- 5 -->
+
+        <div class="grid-item">This</div> <!-- 6 -->
+
+          <div class="grid-item long-text">
+            <p>
+              MKI is a fully fledged<br>
+              Sumo -bot for pushing<br>
+              opponents out of the ring.<br>
+              Sumo -bot MKI wins first<br>
+              runner up, losing to the<br>
+              Champion robot.<br> <!-- losing the back wheels functionality-->
+              <br>
+              MKII is a Line Following sumo -bot<br>
+              which is reused and modified<br>
+              for another subject and project.<br>
+            </p>
+          </div> <!-- 7 -->
+
+        <div class="grid-item special">
+          <div class="grid-item"> <img src="images/11.webp"> </div> <!-- 8 -->
+        </div>
+        
+        <div class="grid-item"> <img src="images/26.webp"> </div> <!-- 9 -->
+
+        <div class="grid-item"> <img src="images/20.webp"> </div> <!-- 10 -->
+
+        <div class="grid-item special"><b>Projects</b></div> <!-- 11 -->
+
+        <div class="grid-item">Straw Shredder</div> <!-- 12 -->
+
+        <div class="grid-item">TicTacToe: Walking Dead</div> <!-- 13 -->
+
+        <div class="grid-item"> <img src="images/1.webp"> </div> <!-- 14 -->
+
+        <div class="grid-item"> <img src="images/25.webp"> </div> <!-- 15 -->
+
+        <div class="grid-item special">
+          <div class="grid-item"> <img src="images/24.webp"> </div> <!-- 16 -->
+        </div>
+        
+        <div class="grid-item"> <img src="images/23.webp"> </div> <!-- 17 -->
+
+        <div class="grid-item">TicTacToe: Walking Dead</div> <!-- 18 -->
+
+        <div class="grid-item"> <img src="images/5.webp"> </div> <!-- 19 -->
+        
+        <div class="grid-item">Gmail: zaf.dominic</div> <!-- 20 -->
+        <div class="grid-item">GitHub: z4aF</div> <!-- 21 -->
+
+          <div class="grid-item long-text">
+            <p>
+              An extruder capable of heating up to<br>
+              400 degrees and can turn plastic straws<br>
+              into a filament for 3D printing<br>
+              featuring a shredder to cut plastic straws<br>
+              in small pieces, fans for cooling,<br>
+              diameter sensor, Camera, and <br>
+              a Filament winder. All can be controlled<br>
+              using your phone with its very own <br>
+              Web interface, accessible by its own unique<br>
+              IP adress similar to a Wi -Fi router.<br>
+            </p>
+          </div> <!-- 22 -->
+
+        <div class="grid-item">Is about</div> <!-- 23 -->
+
+        <div class="grid-item">IG: zaf.og</div> <!-- 24 -->
+        <div class="grid-item">Steam: zaF</div> <!-- 25 -->
+
+        <div class="grid-item">Straw-Freelament</div> <!-- 26 -->
+
+        <div class="grid-item"> <img src="images/21.webp"> </div> <!-- 27 -->
+
+        <div class="grid-item"> <img src="images/14.webp"> </div> <!-- 28 -->
+
+        <div class="grid-item">inset</div> <!-- 29 -->
+
+        <div class="grid-item">@container</div> <!-- 30 -->
+
+        <div class="grid-item"> <img src="images/18.webp"> </div> <!-- 31 -->
+        
+        <div class="grid-item"> <img src="images/13.webp"> </div> <!-- 32 -->
+
+        <div class="grid-item"> <img src="images/15.webp"> </div> <!-- 33 -->
+
+        <div class="grid-item"> <img src="images/8.webp"> </div> <!-- 34 -->
+        
+        <div class="grid-item"> <img src="images/17.webp"> </div> <!-- 35 -->
+
+        <div class="grid-item">Capstone Project</div> <!-- 36 -->
+        <div class="grid-item">scroll-snap</div> <!-- 37 -->
+
+        <div class="grid-item special">
+          <div class="grid-item long-text">
+            <p>
+              This website showcases<br>
+              my software skills creating a<br>
+              website that highlights me and the projects I worked on.<br>
+              I also made this website to practice using the cloud.<br>
+              So, I put the website files and assets into<br>
+              the cloud and added a visitor or viewer counter<br>
+              which is also stored in the cloud using<br>
+              terraform and gitLag CICD and pipeline.<br>
+            </p>
+          </div> <!-- 38 -->
+        </div>
+
+          <div class="grid-item long-text">
+            <p>
+              This little machine provides<br>
+              Wi-Fi codes for internet access.<br>
+              It has its own database which <br>
+              stores voucher codes, student information<br>
+              such as their own programs, unique ID <br>
+              number, and how many vouchers each<br>
+              each students takes based on<br>
+              their programs.<br>
+              <br>
+            </p>
+          </div> <!-- 39 -->
+
+        <div class="grid-item"> <img src="images/21.webp"> </div> <!-- 40 -->
+
+        <div class="grid-item"> <img src="images/11.webp"> </div> <!-- 41 -->
+
+        <div class="grid-item">:fullscreen</div> <!-- 42 -->
+        
+        <div class="grid-item"> <img src="images/13.webp"> </div> <!-- 43 -->
+
+          <div class="grid-item long-text">
+            <p>
+              Developed using Ren Py, a visual novel<br>
+              game engine that uses Python scripting.<br>
+              After being tasked to develop a simple<br>
+              multiplayer TicTacToe game, I was curious <br>
+              about how hard it is to develop one using<br>
+              Ren py. I am a fan of Ren py games, and <br>
+              have always wondered why developers<br>
+              takes months to update their visual novel <br>
+              games. Now that I made one, I now know<br>
+              their struggles.<br>
+              </p>
+          </div> 
+
+        <div class="grid-item"> <img src="images/10.webp"> </div> <!-- 45 -->
+
+        <div class="grid-item special">
+          <div class="grid-item"> <img src="images/19.webp"> </div> <!-- 46 -->
+        </div>
+
+        <div class="grid-item">Web Interface log in screen</div> <!-- 47 -->
+
+        <div class="grid-item"> <img src="images/6.webp"> </div> <!-- 48 -->
+        
+        <div class="grid-item">:fullscreen</div> <!-- 49 -->
+
+        <div class="grid-item"> <img src="images/22.webp"> </div> <!-- 50 -->
+
+        <div class="grid-item special"><b>Website</b></div> <!-- 51 -->
+        
+      </div>
+    </section>
+
+  </div>
+  
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.getElementById("menu-btn");
+    const sideMenu = document.getElementById("side-menu");
+
+    if (menuBtn && sideMenu) {
+      menuBtn.addEventListener("click", () => {
+        sideMenu.classList.toggle("show");
+      });
+    }
+
+    setTimeout(() => {
+      const computer = document.querySelector(".computer");
+      if (computer) computer.classList.add("animate");
+    }, 5000);
+
+    const target = document.querySelector(".multi-type");
+    if (target) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) target.classList.add("start");
+          else target.classList.remove("start");
+        });
+      }, { threshold: 0.5 });
+
+      observer.observe(target);
+    }
+
+    const counter = document.getElementById("counter");
+    if (!counter) return;
+
+    function getVisitorId() {
+      let visitorId = localStorage.getItem("visitor_id");
+      if (!visitorId) {
+        visitorId = crypto.randomUUID();
+        localStorage.setItem("visitor_id", visitorId);
+      }
+      return visitorId;
+    }
+
+    const visitorId = getVisitorId();
+
+    const animateCounter = (targetValue) => {
+      let current = 0;
+      const speed = 30;
+
+      const updateCounter = () => {
+        if (current < targetValue) {
+          current += Math.ceil(targetValue / 100);
+          if (current > targetValue) current = targetValue;
+          counter.innerText = current;
+          setTimeout(updateCounter, speed);
+        } else {
+          counter.innerText = targetValue;
+        }
+      };
+
+      updateCounter();
+    };
+
+    fetch("https://8mifhw8243.execute-api.ap-southeast-2.amazonaws.com/count?t=" + Date.now(), {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Visitor-Id": visitorId
+      },
+      cache: "no-store"
+    })
+      .then(res => {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.json();
+      })
+      .then(data => {
+        localStorage.setItem("cachedVisitorCount", String(data.count));
+        animateCounter(Number(data.count));
+      })
+      .catch(err => {
+        console.error("Counter error:", err);
+        const cachedCount = localStorage.getItem("cachedVisitorCount");
+        if (cachedCount) {
+          animateCounter(Number(cachedCount));
+        } else {
+          counter.innerText = "N/A";
+        }
+      });
+  });
+  </script>
+  
+</body>
+
+</html>

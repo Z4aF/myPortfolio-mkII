@@ -1,0 +1,756 @@
+@font-face {
+  font-family: 'K12HL2';
+  src: url('fonts/K12HL2.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Works in Chrome, Edge, Safari */
+::-webkit-scrollbar { width: 6px; }              /* thin scrollbar */
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05); }    /* faint background */
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.15); /* subtle visible thumb */
+  border-radius: 10px; }
+
+::-webkit-scrollbar-thumb:hover { background-color: rgba(255, 255, 255, 0.25); }
+
+* { scrollbar-width: thin;            /* make scrollbar thin */
+  scrollbar-color: rgba(255, 255, 255, 0.027) rgb(0, 0, 0);}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Background video */
+#bg-video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  background-size: cover;
+}
+
+                                                  /* Menu button */
+/* Hamburger menu button (no background box) */
+#menu-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 35px;
+  height: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+/* The 3 lines */
+#menu-btn span {
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: gold;
+  border-radius: 4px;
+  transition: 0.3s ease;
+  box-shadow: 0 0 5px rgba(255, 215, 0, 0.4);
+}
+
+/* Hover glow effect */
+#menu-btn:hover span {
+  background: rgb(255, 187, 0);
+  box-shadow: 
+    0 0 10px rgba(255, 187, 0, 0.9),
+    0 0 18px rgba(255, 145, 0, 0.8);
+  transform: scale(1.08);
+}
+
+#side-menu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  color: gold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: left 0.3s ease;
+  z-index: 9998;
+  padding-left: 40px;
+  font-family: 'K12HL2', sans-serif; 
+  letter-spacing: 2px;
+}
+
+#side-menu a {
+  color: gold;
+  text-decoration: none;
+  display: block;
+  margin: 15px 0;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  transition: color 0.2s;
+  text-transform: uppercase
+}
+
+#side-menu a:hover {
+  color: rgb(255, 145, 0);
+  text-shadow: 0 0 8px rgba(255, 145, 0, 0.6);
+}
+
+#side-menu ul {
+  list-style: none;  /* Removes the dots */
+  padding: 0;        /* Removes default padding */
+  margin: 0;         /* Removes default margin */
+}
+
+#side-menu li {
+  margin: 40px 0; /* increase vertical space between links */
+}
+
+#side-menu.show {
+  left: 0; /* slide in */
+}
+
+#menu p {
+  font-size: 50rem;
+  margin-top: 15px;
+  opacity: 0.8;
+}
+
+
+                                                  /* Menu button */
+
+/* Sections */
+.section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 100px 20px;
+  position: relative;
+  z-index: 1;
+
+  scroll-snap-align: start;
+}
+
+.content {
+  max-width: 800px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 8rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: gold;
+}
+
+h3.subheading {
+  margin-top: 60px;
+  color: gold;
+  font-size: 2rem;
+}
+
+p {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  font-size: clamp(1rem, 2vw, 2rem);
+  margin-top: 1rem;
+}
+
+.box {
+  border: 2px solid gold;
+  border-radius: 12px;
+  padding: 50px;          /* increased from 30px */
+  margin-top: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 1.3rem;      /* slightly larger text */
+  line-height: 1.8;
+  max-width: 900px;       /* optional: wider box */
+  margin-left: auto;
+  margin-right: auto;     /* centers the box */
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.1); /* subtle gold glow */
+  transition: transform 0.3s ease;
+}
+
+.box:hover {
+  box-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
+  transform: scale(1.02);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 1.8rem; }
+#menu-btn { font-size: 1.8rem; }
+#side-menu a { font-size: 1.2rem; }
+}
+                                                            /* Animation */
+/* ✨ Individual letter animations */
+@keyframes scaleFromCenter {
+  0% { transform: scale(0.01); opacity: 0; }
+  10% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1); opacity: 1; }
+  60%, 100% { transform: scale(60); opacity: 0; visibility: hidden; }
+}
+
+@keyframes scaleFromLeft {
+  0% { transform: translateX(-180px) scale(0.01); opacity: 0; }
+  10% { transform: translateX(0) scale(1); opacity: 1; }
+  50% { transform: translateX(0) scale(1); opacity: 1; }
+  60%, 100% { transform: translateX(100vw) scale(60); opacity: 0; visibility: hidden; }
+}
+
+@keyframes scaleFromRight {
+  0% { transform: translateX(180px) scale(0.01); opacity: 0; }
+  10% { transform: translateX(0) scale(1); opacity: 1; }
+  50% { transform: translateX(0) scale(1); opacity: 1; }
+  60%, 100% { transform: translateX(-100vw) scale(60); opacity: 0; visibility: hidden; }
+}
+
+@keyframes fromCenterToBottom {
+  0%   { transform: translate(-50%, -500%) scale(0.01); opacity: 0; }
+  10%  { transform: translate(-50%, 70%) scale(1); opacity: 1; }
+  50%  { transform: translate(-50%, 70%) scale(1); opacity: 1; }
+  60%, 100% { transform: translate(0%, 350%) scale(60); opacity: 0; visibility: hidden; }
+}
+
+/* ✨ Apply animations to Z, λ, and F */
+.text-scale {
+  font-family: 'K12HL2', sans-serif;
+  font-weight: 400;
+  letter-spacing: 10px;
+  color: rgb(255, 255, 255);
+  text-transform: lowercase;
+  font-size: clamp(3rem, 14vw, 11rem);
+  transform-origin: center;
+  position: relative;
+}
+
+.text-scale span {
+  display: inline-block;
+  opacity: 0;
+  transform-origin: center;
+  animation-duration: 20s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-delay: calc(var(--i) * 0.3s); /* letter stagger */
+}
+
+                                                            /* Hover effect for ZAF letters */
+.text-scale span:hover {
+  color: gold;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.9),
+               0 0 18px rgba(255, 145, 0, 0.7);
+  cursor: pointer;
+  transition: 0.3s ease;
+  transform: scale(1.15);
+}
+
+/* Match each span to its keyframe animation */
+.text-scale span[style*="scaleFromRight"] { animation-name: scaleFromRight; }
+.text-scale span[style*="scaleFromLeft"]  { animation-name: scaleFromLeft; }
+.text-scale span[style*="scaleFromCenter"]{ animation-name: scaleFromCenter; }
+
+/* Main cycle for “Portfolio” word */
+.word-wrap {
+  animation: appearScaleDisappear 20s ease-in-out infinite;
+  display: inline-block;
+}
+
+/* Word style */
+.word {
+  white-space: nowrap;
+  word-break: normal;
+  overflow-wrap: normal;
+  transform: translateX(-50%);
+  position: absolute;
+  left: 50%;
+  top: 65%;
+  transform-origin: center;
+  opacity: 0;
+  font-family: 'K12HL2', 'Orbitron', sans-serif;
+  letter-spacing: 12px;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+}
+
+.computer {
+  --offset: 170px;
+  animation: fromCenterToBottom 20s ease-in-out infinite both;
+  animation-delay: 4s;
+}
+
+/* Hover effect for Playground */
+.word:hover {
+  color: gold;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.9),
+               0 0 18px rgba(255, 145, 0, 0.7);
+  cursor: pointer;
+  transition: 0.3s ease;
+  transform: scale(1.15);
+}
+
+/* Global synchronized appear/disappear */
+@keyframes appearScaleDisappear {
+  0%   { transform: scale(0.01); opacity: 0; }
+  25%  { transform: scale(1); opacity: 1; }
+  69%  { transform: scale(1); opacity: 1; }  /* stays for ~10s */
+  70%,100% { transform: scale(60); opacity: 0; }
+}
+
+/* 🎥 PROJECTS + CONTACT fixed background */
+.video-section.projects {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  z-index: -2;
+}
+
+/* Make the video fixed to viewport center */
+.video-section.projects video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100vw;
+  min-height: 100vh;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* 👤 About Section - White Background */
+.white-bg {
+  background: rgb(255, 255, 255);
+  color: black;
+  z-index: 2;
+  position: relative;
+}
+
+.white-bg .box {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: gold;
+  color: black;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+/* 🎥 HOME SECTION FIX */
+.video-section.home.fixed-center {
+  position: relative;        /* Keeps home video within document flow */
+  width: 100%;
+  height: 100vh;             /* Full screen height */
+  overflow: hidden;
+}
+
+/* Responsive video — auto adjusts to screen size */
+.video-section.home.fixed-center video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;         /* fills screen without distortion */
+  z-index: -1;
+}
+
+/* Home text content always on top of video */
+#home {
+  position: relative;
+  height: 100vh;             /* ensure no extra white space */
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🧭 Responsive Home Text Layout */
+#home .content.center {
+  position: absolute;
+  top: 40vh;                 /* roughly top third of screen */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 90%;                /* prevents overflow on small screens */
+  max-width: 900px;
+}
+
+/* Adjust h1 (ZAF) text size responsively */
+#home h1 {
+  font-size: clamp(10rem, 10vw, 10rem);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+/* Adjust "Playground" text below */
+#home .computer-engineer {
+  font-size: clamp(1rem, 3vw, 2rem);
+  letter-spacing: 0.2em;
+  margin-top: 0.5rem;
+}
+
+/* Slight animation scale fix for small screens */
+@media (max-width: 768px) {
+  #home .content.center {
+    top: 30vh; /* slightly lower for smaller screens */
+  }
+}
+
+/* For very small phones */
+@media (max-width: 480px) {
+  #home .content.center {
+    top: 35vh; /* push down a bit to stay visible */
+  }
+  #home h1 {
+    font-size: clamp(2.5rem, 12vw, 6rem);
+  }
+}
+
+@keyframes zafGrow {
+  0%   { transform: scale(1) translateY(-30%); }
+  100% { transform: scale(1.2) translateY(-30%); }
+}
+
+#about {
+  position: relative;
+  z-index: 10;
+  background: rgb(255, 255, 255);
+}
+
+                                                            /* CSS ANIMATION */
+
+@keyframes zoom-in {
+  0% {
+    transform: translateZ(-1000px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateZ(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateZ(1000px);
+    opacity: 1;
+  }
+}
+
+.stuck-grid {
+  block-size: 100svh;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+
+  display: grid;
+  grid: repeat(4, 25dvh) / repeat(4, 25dvw);;
+  place-items: center;
+
+  position: sticky;
+  top: 0;
+
+  overflow: clip;
+
+  > .grid-item {
+    overflow-wrap: break-word;
+    word-break: break-word;
+
+    transform-style: preserve-3d;
+
+    font-size: clamp(0.8rem, 2.2vw, 2rem);
+    font-weight: lighter;
+
+    text-wrap: nowrap;
+
+    @supports (animation-timeline: scroll()) {
+      @media (prefers-reduced-motion: no-preference) {
+        animation: zoom-in linear both;
+        animation-timeline: scroll(root block);
+        will-change: transform, opacity, filter;
+      }
+    }
+
+    &.special.special {
+      grid-row: 2 / span 2;
+      grid-column: 2 / span 2;
+    }
+
+    > b {
+      font-size: clamp(2rem, 7vw, 9rem);
+    }
+
+&:nth-of-type(1)  { animation-range: 77% 84.5% }  /* 1 — Sumobot name */
+&:nth-of-type(2)  { animation-range: 91% 96% }  /* 2 — Contacts */
+&:nth-of-type(3)  { animation-range: 46% 56% }  /* 3 — WIVOU */
+&:nth-of-type(4)  { animation-range: 53% 59% }  /* 4 — wi vou img 12 */
+&:nth-of-type(5)  { animation-range: 38% 42% }  /* 5 — dashboard camera view phone */
+&:nth-of-type(6)  { animation-range: 13.5% 17.5% }  /* 6 — This */
+&:nth-of-type(7)  { animation-range: 79.5% 85% }  /* 7 — Long Text SUMO BOT  */
+&:nth-of-type(8)  { animation-range: 85% 90% }  /* 8 — SUMOBOT pic 11 */
+&:nth-of-type(9)  { animation-range: 78% 83% }  /* 9 — SUMOBOT img 26  */
+&:nth-of-type(10) { animation-range: 41% 45% }  /* 10 — Motherboard */
+&:nth-of-type(11) { animation-range: 10% 14% }  /* 11 — Projects */
+&:nth-of-type(12) { animation-range: 26% 31% }  /* 12 — shredder name */
+&:nth-of-type(13) { animation-range: 72% 78% }  /* 13 — TWD name */
+&:nth-of-type(14) { animation-range: 14% 20% }  /* 14 — img 1 */
+&:nth-of-type(15) { animation-range: 60.5% 63.5% }  /* 15 — img 23 */
+&:nth-of-type(16) { animation-range: 67% 72% }  /* 16 — img 24 */
+&:nth-of-type(17) { animation-range: 65% 68% }  /* 17 — img 25 */
+&:nth-of-type(18) { animation-range: 60.5% 72% }  /* 18 — TicTacToe: Walking Dead */
+&:nth-of-type(19) { animation-range: 36% 40% }  /* 19 — straw shredder skeleton img 5 */
+&:nth-of-type(20) { animation-range: 90% 100% }  /* 20 — zaf.dominic@gmail.com */
+&:nth-of-type(21) { animation-range: 92% 100% }  /* 21 — GitHub */
+&:nth-of-type(22) { animation-range: 24% 33% }  /* 22 — Long text straw freelament */
+&:nth-of-type(23) { animation-range: 14% 18% }  /* 23 — is about */
+&:nth-of-type(24) { animation-range: 99% 100% }  /* 24 — IG */
+&:nth-of-type(25) { animation-range: 94% 100% }  /* 25 — STEAM */
+&:nth-of-type(26) { animation-range: 22% 33% }  /* 26 — straw-freelament */
+&:nth-of-type(27) { animation-range: 14% 20% }  /* 27 — ascent-override */
+&:nth-of-type(28) { animation-range: 57% 61% }  /* 28 — wivou img 14 */
+&:nth-of-type(29) { animation-range: 96% 96% }  /* 29 — inset */
+&:nth-of-type(30) { animation-range: 96% 96% }  /* 30 — @container */
+&:nth-of-type(31) { animation-range: 32% 36% }  /* 31 — Dashboard web interface img 10 */
+&:nth-of-type(32) { animation-range: 12% 16% }  /* 32 — wivou img 13 */
+&:nth-of-type(33) { animation-range: 48% 52% }  /* 33 — @scope */
+&:nth-of-type(34) { animation-range: 34% 38% }  /* 34 — Extruder heat chamber */
+&:nth-of-type(35) { animation-range: 39% 42% }  /* 35 — Dashboard camera view pc */
+&:nth-of-type(36) { animation-range: 24% 34% }  /* 36 — Capstone Project */
+&:nth-of-type(37) { animation-range: 98% 98% }  /* 37 — scroll-snap */
+&:nth-of-type(38) { animation-range: 18% 23% }  /* 38 — Long text paragraph */
+&:nth-of-type(39) { animation-range: 48% 54% }  /* 39 — Long text WIVOU */
+&:nth-of-type(40) { animation-range: 95% 95% }  /* 40 —  */
+&:nth-of-type(41) { animation-range: 11% 16% }  /* 41 — <img src="images/11.png"> */
+&:nth-of-type(42) { animation-range: 96% 96% }  /* 42 — :fullscreen */
+&:nth-of-type(43) { animation-range: 56% 60% }  /* 43 — wi vou img 13 */
+&:nth-of-type(44) { animation-range: 73% 78% }  /* 44 — Long text TWD */
+&:nth-of-type(45) { animation-range: 34% 37% }  /* 45 — Extruder end cap */
+&:nth-of-type(46) { animation-range: 29% 31% }  /* 46 — straw-freelament picture */
+&:nth-of-type(47) { animation-range: 98% 98% }  /* 47 — Is about fail*/
+&:nth-of-type(48) { animation-range: 25% 31% }  /* 48 — shredder picture */
+&:nth-of-type(49) { animation-range: 94% 94% }  /* 49 — emtpy = pag same percentage */
+&:nth-of-type(50) { animation-range: 43% 47% }  /* 50 — Extruder case */
+&:nth-of-type(51) { animation-range: 14% 19% }  /* 51 — Website */
+
+
+    @supports (animation-timeline: scroll()) {
+
+      &:nth-of-type(1) { grid-area: 2/3 }
+      &:nth-of-type(2) { grid-area: 1/2 }
+      &:nth-of-type(3) { grid-area: 1/3 }
+      &:nth-of-type(4) { grid-area: 3/3 }
+      &:nth-of-type(5) { grid-area: 2/2 }
+      &:nth-of-type(6) { grid-area: 2/2 }
+      &:nth-of-type(7) { grid-area: 3/3 }
+      &:nth-of-type(8) { grid-area: 2/2 }
+      &:nth-of-type(9) { grid-area: 3/2 }
+      &:nth-of-type(10) { grid-area: 3/2 }
+      &:nth-of-type(11) { grid-area: 3/3 }
+      &:nth-of-type(12) { grid-area: 3/4 }
+      &:nth-of-type(13) { grid-area: 2/2 }
+      &:nth-of-type(14) { grid-area: 4/2 }
+      &:nth-of-type(15) { grid-area: 3/3 }
+      &:nth-of-type(16) { grid-area: 4/4 }
+      &:nth-of-type(17) { grid-area: 3/2 }
+      &:nth-of-type(18) { grid-area: 2/2 }
+      &:nth-of-type(19) { grid-area: 2/3 }
+      &:nth-of-type(20) { grid-area: 3/3 }
+      &:nth-of-type(21) { grid-area: 2/2 }
+      &:nth-of-type(22) { grid-area: 3/2 }
+      &:nth-of-type(23) { grid-area: 3/3 }
+      &:nth-of-type(24) { grid-area: 1/3 }
+      &:nth-of-type(25) { grid-area: 4/2 }
+      &:nth-of-type(26) { grid-area: 1/2 }
+      &:nth-of-type(27) { grid-area: 1/3 }
+      &:nth-of-type(28) { grid-area: 2/3 }
+      &:nth-of-type(29) { grid-area: 4/1 }
+      &:nth-of-type(30) { grid-area: 4/2 }
+      &:nth-of-type(31) { grid-area: 4/3 }
+      &:nth-of-type(32) { grid-area: 4/4 }
+      &:nth-of-type(33) { grid-area: 2/2 }
+      &:nth-of-type(34) { grid-area: 2/2 }
+      &:nth-of-type(35) { grid-area: 3/3 }
+      &:nth-of-type(36) { grid-area: 2/4 }
+      &:nth-of-type(37) { grid-area: 3/1 }
+      &:nth-of-type(38) { grid-area: 3/2 }
+      &:nth-of-type(39) { grid-area: 3/3 }
+      &:nth-of-type(40) { grid-area: 3/4 }
+      &:nth-of-type(41) { grid-area: 1/1 }
+      &:nth-of-type(42) { grid-area: 1/2 }
+      &:nth-of-type(43) { grid-area: 3/2 }
+      &:nth-of-type(44) { grid-area: 3/2 }
+      &:nth-of-type(45) { grid-area: 4/1 }
+      &:nth-of-type(46) { grid-area: 4/2 }
+      &:nth-of-type(47) { grid-area: 4/3 }
+      &:nth-of-type(48) { grid-area: 4/4 }
+      &:nth-of-type(49) { grid-area: 3/1 }
+      &:nth-of-type(50) { grid-area: 3/3 }
+      &:nth-of-type(51) { grid-area: 3/3 }
+      &:nth-of-type(52) { grid-area: 3/4 }
+    }
+  }
+}
+
+@layer support {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  html {
+    block-size: 100%;
+    color-scheme: dark light;
+
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    overflow-x: hidden;
+    min-block-size: 400vh;
+    font-family: 'K12HL2', sans-serif;
+    font-weight: 100;
+    text-transform: uppercase;
+  }
+}
+
+.scroll-container {
+  position: relative;
+  height: 400vh;   /* controls scroll distance for animation */
+}
+
+.stuck-grid {
+  position: fixed;
+  top: 0;
+}
+
+.scroll-delay {
+  height: 1500vh;  /* SCROLL DELAY HERE — change this */
+}
+
+
+                                                            /* CSS animation */
+
+                                                            /* Typewriter effect */
+
+/* Cursor */
+.multi-type {
+    text-align: left;
+}
+
+/* base: hidden + no animation at all */
+.multi-type span {
+    display: block;
+    overflow: hidden;
+    border-right: 2px solid rgba(255,255,255,.75);
+    white-space: nowrap;
+    font-size: clamp(1rem, 2.2vw, 1.9rem);
+
+    opacity: 0;
+    width: 0;
+    animation: none;
+}
+
+/* visible and animated when in viewport */
+.multi-type.start span {
+    animation: type 3s steps(60) forwards,
+               blink .7s step-end infinite;
+    animation-delay: var(--d);
+    opacity: 1;        /* becomes visible during animation */
+}
+
+/* Typewriter keyframes */
+@keyframes type {
+    from { width: 0; opacity: 1; }
+    to { width: 100%; opacity: 1; }
+}
+
+/* Blinking cursor */
+@keyframes blink {
+    from { border-right-color: rgba(255,255,255,.75); }
+    to { border-right-color: transparent; }
+}
+
+                                                            /* Typewriter effect */
+
+/* Make every grid item a "textbox" */
+.grid-item .textbox {
+  border: 2px solid #fff;      /* white border */
+  background-color: rgba(0,0,0,0.5); /* semi-transparent background */
+  padding: 15px 20px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 250px;
+  margin: auto;
+  font-family: sans-serif;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.long-text {
+  padding: 1rem;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(6px);
+  line-height: 1.4;
+  font-size: 1rem;
+  text-align: center;
+}
+.long-text p {
+  margin: 0;
+}
+
+#contact {
+  height: 1px;
+  margin-top: -135vh;
+  scroll-margin-top: 100px;
+}
+
+#side-menu p {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 15px;
+}
+
+#counter {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 20px;
+  color: #00ffcc;
+  letter-spacing: 2px;
+}
+
+.lambda-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  cursor: pointer;
+  transition: color 0.25s ease, text-shadow 0.25s ease, transform 0.25s ease;
+}

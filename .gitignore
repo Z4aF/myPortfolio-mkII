@@ -1,0 +1,16 @@
+# Python
+venv/
+__pycache__/
+.pytest_cache/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+
+# Build artifacts
+*.zip
+
+# VS Code
+.vscode/
