@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, pytests]
   pull_request:
-    branches: [main]
+    branches: [main, pytests]
   workflow_dispatch:
 
 jobs:
