@@ -7,6 +7,11 @@ resource "aws_dynamodb_table" "counter" {
     name = "id"
     type = "S"
   }
+
+  tags = {
+    Project = "CloudResumeChallenge"
+    Owner   = "Paolo"
+  } 
 }
 
 resource "aws_dynamodb_table" "visitors" {
