@@ -199,8 +199,9 @@
           <tr>
             <th>Visitor ID</th>
             <th>First Visit</th>
-            <th>Last Visit</th>
-            <th>Visit Count</th>
+            <th>Last Seen</th>
+            <th>Hits</th>
+            <th>Unique Visits</th>
           </tr>
         </thead>
         <tbody id="visitorTable">
@@ -265,17 +266,17 @@
 
         document.getElementById("totalUnique").textContent = visitors.length;
 
-        const totalVisits = visitors.reduce((sum, v) => sum + (v.visit_count || 0), 0);
+        const totalVisits = visitors.reduce((sum, v) => sum + (v.hit_count || 0), 0);
         document.getElementById("totalVisits").textContent = totalVisits;
 
-        const repeatVisitors = visitors.filter(v => (v.visit_count || 0) > 1).length;
+        const repeatVisitors = visitors.filter(v => (v.counted_visit_count || 0) > 1).length;
         document.getElementById("repeatVisitors").textContent = repeatVisitors;
 
         const latest = visitors.reduce((max, v) => {
-          return !max || (v.last_visit || 0) > (max.last_visit || 0) ? v : max;
+          return !max || (v.last_seen || 0) > (max.last_seen || 0) ? v : max;
         }, null);
 
-        document.getElementById("latestVisit").textContent = latest ? formatUnix(latest.last_visit) : "-";
+        document.getElementById("latestVisit").textContent = latest ? formatUnix(latest.last_seen) : "-";
 
         const tbody = document.getElementById("visitorTable");
 
@@ -288,14 +289,15 @@
           return;
         }
 
-        visitors.sort((a, b) => (b.last_visit || 0) - (a.last_visit || 0));
+        visitors.sort((a, b) => (b.last_seen || 0) - (a.last_seen || 0));
 
         tbody.innerHTML = visitors.map(v => `
           <tr>
             <td title="${v.visitor_id}">${shortenVisitorId(v.visitor_id)}</td>
             <td>${formatUnix(v.first_visit)}</td>
-            <td>${formatUnix(v.last_visit)}</td>
-            <td>${v.visit_count || 0}</td>
+            <td>${formatUnix(v.last_seen)}</td>
+            <td>${v.hit_count || 0}</td>
+            <td>${v.counted_visit_count || 0}</td>
           </tr>
         `).join("");
       })

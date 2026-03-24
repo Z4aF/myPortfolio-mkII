@@ -27,8 +27,10 @@ def lambda_handler(event, context):
 
         for item in items:
             item["first_visit"] = int(item.get("first_visit", 0))
-            item["last_visit"] = int(item.get("last_visit", 0))
-            item["visit_count"] = int(item.get("visit_count", 0))
+            item["last_seen"] = int(item.get("last_seen", 0))
+            item["last_counted_at"] = int(item.get("last_counted_at", 0))
+            item["hit_count"] = int(item.get("hit_count", 0))
+            item["counted_visit_count"] = int(item.get("counted_visit_count", 0))
 
         return {
             "statusCode": 200,

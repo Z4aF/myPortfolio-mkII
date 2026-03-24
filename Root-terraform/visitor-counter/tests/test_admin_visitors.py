@@ -9,8 +9,10 @@ class FakeVisitorsTableSinglePage:
                 {
                     "visitor_id": "abc",
                     "first_visit": 1700000000,
-                    "last_visit": 1700001000,
-                    "visit_count": 3
+                    "last_seen": 1700001000,
+                    "last_counted_at": 1700000500,
+                    "hit_count": 3,
+                    "counted_visit_count": 2
                 }
             ]
         }
@@ -29,8 +31,10 @@ class FakeVisitorsTableMultiPage:
                     {
                         "visitor_id": "first",
                         "first_visit": 1,
-                        "last_visit": 2,
-                        "visit_count": 3
+                        "last_seen": 2,
+                        "last_counted_at": 2,
+                        "hit_count": 3,
+                        "counted_visit_count": 1
                     }
                 ],
                 "LastEvaluatedKey": {"visitor_id": "first"}
@@ -41,8 +45,10 @@ class FakeVisitorsTableMultiPage:
                 {
                     "visitor_id": "second",
                     "first_visit": 4,
-                    "last_visit": 5,
-                    "visit_count": 6
+                    "last_seen": 5,
+                    "last_counted_at": 5,
+                    "hit_count": 6,
+                    "counted_visit_count": 2
                 }
             ]
         }
@@ -64,7 +70,8 @@ def test_admin_visitors_returns_visitors_list(monkeypatch):
     assert "visitors" in body
     assert isinstance(body["visitors"], list)
     assert body["visitors"][0]["visitor_id"] == "abc"
-    assert body["visitors"][0]["visit_count"] == 3
+    assert body["visitors"][0]["hit_count"] == 3
+    assert body["visitors"][0]["counted_visit_count"] == 2
     assert isinstance(body["visitors"][0]["first_visit"], int)
 
 

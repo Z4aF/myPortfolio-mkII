@@ -74,8 +74,10 @@ def test_existing_visitor_within_cooldown_does_not_increment_global_counter(monk
         existing_item={
             "visitor_id": "abc123",
             "first_visit": now - 1000,
-            "last_visit": now - 100,
-            "visit_count": 3
+            "last_seen": now - 100,
+            "last_counted_at": now - 100,
+            "hit_count": 3,
+            "counted_visit_count": 1
         }
     )
     counter_table = FakeCounterTable(count=10)
@@ -112,8 +114,10 @@ def test_existing_visitor_after_cooldown_increments_global_counter(monkeypatch):
         existing_item={
             "visitor_id": "abc123",
             "first_visit": now - 200000,
-            "last_visit": now - 90000,
-            "visit_count": 3
+            "last_seen": now - 90000,
+            "last_counted_at": now - 90000,
+            "hit_count": 3,
+            "counted_visit_count": 1
         }
     )
     counter_table = FakeCounterTable(count=10)
