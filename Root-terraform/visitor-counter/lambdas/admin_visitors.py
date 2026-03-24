@@ -16,7 +16,6 @@ def lambda_handler(event, context):
     try:
         items = []
         response = visitors_table.scan()
-
         items.extend(response.get("Items", []))
 
         while "LastEvaluatedKey" in response:
@@ -25,12 +24,17 @@ def lambda_handler(event, context):
             )
             items.extend(response.get("Items", []))
 
+        clean_items = []
+
         for item in items:
-            item["first_visit"] = int(item.get("first_visit", 0))
-            item["last_seen"] = int(item.get("last_seen", 0))
-            item["last_counted_at"] = int(item.get("last_counted_at", 0))
-            item["hit_count"] = int(item.get("hit_count", 0))
-            item["counted_visit_count"] = int(item.get("counted_visit_count", 0))
+            clean_items.append({
+                "visitor_id": str(item.get("visitor_id", "")),
+                "first_visit": int(item.get("first_visit", 0)),
+                "last_seen": int(item.get("last_seen", 0)),
+                "last_counted_at": int(item.get("last_counted_at", 0)),
+                "hit_count": int(item.get("hit_count", 0)),
+                "counted_visit_count": int(item.get("counted_visit_count", 0)),
+            })
 
         return {
             "statusCode": 200,
@@ -41,7 +45,7 @@ def lambda_handler(event, context):
                 "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0"
             },
             "body": json.dumps({
-                "visitors": items
+                "visitors": clean_items
             })
         }
 
