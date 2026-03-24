@@ -44,24 +44,40 @@ def lambda_handler(event, context):
             Item={
                 "visitor_id": visitor_id,
                 "first_visit": now,
-                "last_visit": now,
-                "visit_count": 1
+                "last_seen": now,
+                "last_counted_at": now,
+                "hit_count": 1,
+                "counted_visit_count": 1
             }
         )
     else:
-        last_visit = existing["Item"].get("last_visit", 0)
+        item = existing["Item"]
+        last_counted = item.get("last_counted_at", 0)
 
-        if now - last_visit > COOLDOWN:
-            increment = True
-
+        # always update hits
         visitors_table.update_item(
             Key={"visitor_id": visitor_id},
-            UpdateExpression="SET last_visit = :t ADD visit_count :inc",
+            UpdateExpression="SET last_seen = :t ADD hit_count :inc",
             ExpressionAttributeValues={
                 ":t": now,
                 ":inc": 1
             }
         )
+
+        if now - last_counted > COOLDOWN:
+            increment = True
+
+            visitors_table.update_item(
+                Key={"visitor_id": visitor_id},
+                UpdateExpression="""
+                    SET last_counted_at = :t
+                    ADD counted_visit_count :inc
+                """,
+                ExpressionAttributeValues={
+                    ":t": now,
+                    ":inc": 1
+                }
+            )
 
     if increment:
         response = counter_table.update_item(
