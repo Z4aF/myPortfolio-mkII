@@ -1,0 +1,39 @@
+ .github/workflows/ci.yml                           |   36 [32m+[m
+ .github/workflows/deploy.yml                       |   53 [32m+[m
+ .gitignore                                         |   18 [32m+[m[31m-[m
+ README.md                                          |   93 [31m--[m
+ Root-terraform/.terraform.lock.hcl                 |   25 [32m+[m
+ Root-terraform/.vscode/settings.json               |    7 [31m-[m
+ Root-terraform/Readme.txt                          |    7 [32m+[m
+ Root-terraform/backend.tf                          |    9 [32m+[m
+ Root-terraform/cloudfront.tf                       |  112 [32m+[m[31m-[m
+ Root-terraform/cloudfront_waf.tf                   |   34 [32m+[m[31m-[m
+ Root-terraform/iam.tf                              |   46 [32m+[m[31m-[m
+ Root-terraform/outputs.tf                          |    6 [32m+[m[31m-[m
+ Root-terraform/provider.tf                         |   38 [32m+[m[31m-[m
+ Root-terraform/s3.tf                               |   24 [32m+[m[31m-[m
+ Root-terraform/variables.tf                        |   22 [32m+[m[31m-[m
+ Root-terraform/visitor-counter/.terraform.lock.hcl |   43 [32m+[m
+ Root-terraform/visitor-counter/apigateway.tf       |  112 [32m+[m[31m-[m
+ Root-terraform/visitor-counter/backend.tf          |    9 [32m+[m
+ Root-terraform/visitor-counter/dynamodb.tf         |   47 [32m+[m[31m-[m
+ Root-terraform/visitor-counter/iam.tf              |   88 [32m+[m[31m-[m
+ Root-terraform/visitor-counter/lambda.tf           |   56 [32m+[m[31m-[m
+ Root-terraform/visitor-counter/lambdas/__init__.py |    0
+ .../lambdas/__pycache__/__init__.cpython-314.pyc   |  Bin [31m179[m -> [32m0[m bytes
+ .../__pycache__/admin_visitors.cpython-314.pyc     |  Bin [31m2226[m -> [32m0[m bytes
+ .../lambdas/__pycache__/counter.cpython-314.pyc    |  Bin [31m3395[m -> [32m0[m bytes
+ .../{lambda => lambdas}/admin_visitors.py          |  103 [32m+[m[31m-[m
+ .../visitor-counter/{lambda => lambdas}/counter.py |  173 [32m+[m[31m--[m
+ Root-terraform/visitor-counter/outputs.tf          |    6 [32m+[m[31m-[m
+ Root-terraform/visitor-counter/pytest.ini          |    3 [32m+[m
+ .../visitor-counter/requirements-dev.txt           |    2 [32m+[m
+ ...est_admin_visitors.cpython-314-pytest-9.0.2.pyc |  Bin [31m11026[m -> [32m0[m bytes
+ .../test_counter.cpython-314-pytest-9.0.2.pyc      |  Bin [31m16134[m -> [32m0[m bytes
+ .../visitor-counter/tests/test_admin_visitors.py   |   93 [32m++[m
+ .../visitor-counter/tests/test_counter.py          |  166 [32m+++[m
+ frontend/admin.html                                |  626 [32m++++[m[31m----[m
+ frontend/index.html                                |  730 [32m+++++[m[31m-----[m
+ frontend/script.js                                 |    0
+ frontend/style.css                                 | 1510 [32m++++++++++[m[31m----------[m
+ 38 files changed, 2334 insertions(+), 1963 deletions(-)
