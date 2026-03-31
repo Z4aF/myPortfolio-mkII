@@ -257,17 +257,22 @@ p {
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-delay: calc(var(--i) * 0.3s); /* letter stagger */
+
+  transition: transform 0.25s ease, color 0.25s ease, text-shadow 0.25s ease;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
                                                             /* Hover effect for ZAF letters */
 .text-scale span:hover {
   color: gold;
-  text-shadow: 0 0 12px rgba(255, 215, 0, 0.9),
-               0 0 18px rgba(255, 145, 0, 0.7);
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.7),
+               0 0 10px rgba(255, 145, 0, 0.45);
   cursor: pointer;
-  transition: 0.3s ease;
-  transform: scale(1.15);
+  transform: scale(1.08);
 }
+
 
 /* Match each span to its keyframe animation */
 .text-scale span[style*="scaleFromRight"] { animation-name: scaleFromRight; }
@@ -295,6 +300,11 @@ p {
   letter-spacing: 12px;
   color: rgb(255, 255, 255);
   text-transform: uppercase;
+
+  display: inline-block;
+  transition: transform 0.25s ease, color 0.25s ease, text-shadow 0.25s ease;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .computer {
@@ -306,11 +316,8 @@ p {
 /* Hover effect for Playground */
 .word:hover {
   color: gold;
-  text-shadow: 0 0 12px rgba(255, 215, 0, 0.9),
-               0 0 18px rgba(255, 145, 0, 0.7);
+  transform: scale(1.06);
   cursor: pointer;
-  transition: 0.3s ease;
-  transform: scale(1.15);
 }
 
 /* Global synchronized appear/disappear */
@@ -468,7 +475,7 @@ p {
   grid: repeat(4, 25dvh) / repeat(4, 25dvw);;
   place-items: center;
 
-  position: sticky;
+  position: fixed;
   top: 0;
 
   overflow: clip;
@@ -513,7 +520,7 @@ p {
 &:nth-of-type(10) { animation-range: 41% 45% }  /* 10 — Motherboard */
 &:nth-of-type(11) { animation-range: 10% 14% }  /* 11 — Projects */
 &:nth-of-type(12) { animation-range: 26% 31% }  /* 12 — shredder name */
-&:nth-of-type(13) { animation-range: 72% 78% }  /* 13 — TWD name */
+&:nth-of-type(13) { animation-range: 72% 76% }  /* 13 — TWD name */
 &:nth-of-type(14) { animation-range: 14% 20% }  /* 14 — img 1 */
 &:nth-of-type(15) { animation-range: 60.5% 63.5% }  /* 15 — img 23 */
 &:nth-of-type(16) { animation-range: 67% 72% }  /* 16 — img 24 */
@@ -524,7 +531,7 @@ p {
 &:nth-of-type(21) { animation-range: 92% 100% }  /* 21 — GitHub */
 &:nth-of-type(22) { animation-range: 24% 33% }  /* 22 — Long text straw freelament */
 &:nth-of-type(23) { animation-range: 14% 18% }  /* 23 — is about */
-&:nth-of-type(24) { animation-range: 99% 100% }  /* 24 — IG */
+&:nth-of-type(24) { animation-range: 96% 100% }  /* 24 — IG */
 &:nth-of-type(25) { animation-range: 94% 100% }  /* 25 — STEAM */
 &:nth-of-type(26) { animation-range: 22% 33% }  /* 26 — straw-freelament */
 &:nth-of-type(27) { animation-range: 14% 20% }  /* 27 — ascent-override */
@@ -640,15 +647,9 @@ p {
   height: 400vh;   /* controls scroll distance for animation */
 }
 
-.stuck-grid {
-  position: fixed;
-  top: 0;
-}
-
 .scroll-delay {
   height: 1500vh;  /* SCROLL DELAY HERE — change this */
 }
-
 
                                                             /* CSS animation */
 
