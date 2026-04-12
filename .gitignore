@@ -1,6 +1,16 @@
+# Python
+venv/
+__pycache__/
+.pytest_cache/
+
+# Terraform
 .terraform/
 *.tfstate
-*.tfstate.backup
+*.tfstate.*
 .terraform.lock.hcl
-lambda.zip
-.env
+
+# Build artifacts
+*.zip
+
+# VS Code
+.vscode/
