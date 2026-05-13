@@ -208,7 +208,7 @@ p {
 #side-menu a { font-size: 1.2rem; }
 }
                                                             /* Animation */
-/* ✨ Individual letter animations */
+/* Individual letter animations */
 @keyframes scaleFromCenter {
   0% { transform: scale(0.01); opacity: 0; }
   10% { transform: scale(1); opacity: 1; }
@@ -217,14 +217,14 @@ p {
 }
 
 @keyframes scaleFromLeft {
-  0% { transform: translateX(-180px) scale(0.01); opacity: 0; }
+  0% { transform: translateX(-130px) scale(0.01); opacity: 0; }
   10% { transform: translateX(0) scale(1); opacity: 1; }
   50% { transform: translateX(0) scale(1); opacity: 1; }
   60%, 100% { transform: translateX(100vw) scale(60); opacity: 0; visibility: hidden; }
 }
 
 @keyframes scaleFromRight {
-  0% { transform: translateX(180px) scale(0.01); opacity: 0; }
+  0% { transform: translateX(130px) scale(0.01); opacity: 0; }
   10% { transform: translateX(0) scale(1); opacity: 1; }
   50% { transform: translateX(0) scale(1); opacity: 1; }
   60%, 100% { transform: translateX(-100vw) scale(60); opacity: 0; visibility: hidden; }
@@ -237,7 +237,7 @@ p {
   60%, 100% { transform: translate(0%, 350%) scale(60); opacity: 0; visibility: hidden; }
 }
 
-/* ✨ Apply animations to Z, λ, and F */
+/* Apply animations to Z, λ, and F */
 .text-scale {
   font-family: 'K12HL2', sans-serif;
   font-weight: 400;
@@ -328,7 +328,7 @@ p {
   70%,100% { transform: scale(60); opacity: 0; }
 }
 
-/* 🎥 PROJECTS + CONTACT fixed background */
+/* PROJECTS + CONTACT fixed background */
 .video-section.projects {
   position: relative;
   width: 100%;
@@ -351,7 +351,7 @@ p {
   pointer-events: none;
 }
 
-/* 👤 About Section - White Background */
+/* About Section - White Background */
 .white-bg {
   background: rgb(255, 255, 255);
   color: black;
@@ -366,7 +366,7 @@ p {
   box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
 }
 
-/* 🎥 HOME SECTION FIX */
+/* HOME SECTION FIX */
 .video-section.home.fixed-center {
   position: relative;        /* Keeps home video within document flow */
   width: 100%;
@@ -396,7 +396,7 @@ p {
   align-items: center;
 }
 
-/* 🧭 Responsive Home Text Layout */
+/* Responsive Home Text Layout */
 #home .content.center {
   position: absolute;
   top: 40vh;                 /* roughly top third of screen */
@@ -409,14 +409,14 @@ p {
 
 /* Adjust h1 (ZAF) text size responsively */
 #home h1 {
-  font-size: clamp(10rem, 10vw, 10rem);
+  font-size: clamp(3rem, 8vw, 7rem);
   line-height: 1;
   margin-bottom: 1rem;
 }
 
 /* Adjust "Playground" text below */
 #home .computer-engineer {
-  font-size: clamp(1rem, 3vw, 2rem);
+  font-size: clamp(0.8rem, 3vw, 1.25rem);
   letter-spacing: 0.2em;
   margin-top: 0.5rem;
 }
@@ -449,7 +449,7 @@ p {
   background: rgb(255, 255, 255);
 }
 
-                                                            /* CSS ANIMATION */
+                                                            /* CSS Scroll ANIMATION */
 
 @keyframes zoom-in {
   0% {
@@ -486,7 +486,7 @@ p {
 
     transform-style: preserve-3d;
 
-    font-size: clamp(0.8rem, 2.2vw, 2rem);
+    font-size: clamp(0.8rem, 2.2vw, 1.25rem);
     font-weight: lighter;
 
     text-wrap: nowrap;
@@ -653,7 +653,7 @@ p {
 
                                                             /* CSS animation */
 
-                                                            /* Typewriter effect */
+                                                            /* Typewriter effect ABOUT */
 
 /* Cursor */
 .multi-type {
@@ -666,7 +666,7 @@ p {
     overflow: hidden;
     border-right: 2px solid rgba(255,255,255,.75);
     white-space: nowrap;
-    font-size: clamp(1rem, 2.2vw, 1.9rem);
+    font-size: clamp(1rem, 2.2vw, 1.25rem);
 
     opacity: 0;
     width: 0;
@@ -737,7 +737,7 @@ p {
 
 #side-menu p {
   font-family: 'Orbitron', sans-serif;
-  font-size: 15px;
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
 }
 
 #counter {
