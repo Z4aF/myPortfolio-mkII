@@ -482,6 +482,8 @@ p {
   overflow: clip;
 
   > .grid-item {
+    color:#00ffcc;
+
     overflow-wrap: break-word;
     word-break: break-word;
 
