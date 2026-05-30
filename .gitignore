@@ -2,15 +2,24 @@
 venv/
 __pycache__/
 .pytest_cache/
+*.pyc
 
 # Terraform
 .terraform/
 *.tfstate
 *.tfstate.*
-.terraform.lock.hcl
+crash.log
+terraform.tfvars
+terraform.tfvars.json
 
 # Build artifacts
 *.zip
 
 # VS Code
 .vscode/
+
+# Secrets
+.env
+.env.*
+*.pem
+*.key
