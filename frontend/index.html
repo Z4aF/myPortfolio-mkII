@@ -23,8 +23,15 @@
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About Me</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact-anchor">Contacts</a></li>
+
+      <li><a href="#" onclick="scrollToPercent(9); return false;">Projects</a></li>
+      <li><a href="#" onclick="scrollToPercent(25); return false;">- Extruder</a></li>
+      <li><a href="#" onclick="scrollToPercent(48); return false;">- WiVou</a></li>
+      <li><a href="#" onclick="scrollToPercent(60); return false;">- TicTacToe</a></li>
+      <li><a href="#" onclick="scrollToPercent(79); return false;">- SumoBot</a></li>
+      <li><a href="#" onclick="scrollToPercent(87); return false;">Admin Dashboard</a></li>
+
+      <li><a href="#" onclick="scrollToPercent(94.5); return false;">Contacts</a></li>
     </ul>
 
         <hr>
@@ -85,9 +92,14 @@
         <div class="content center">
           <h1 class="text-scale">
             <span style="--i:1; animation-name: scaleFromRight;">Z</span>
-            <a href="#contact-anchor" class="lambda-link" aria-label="Open admin page">
-              <span class="lambda" style="--i:8; animation-name: scaleFromCenter;">&lambda;</span>
+
+            <a href="#" class="lambda-link" aria-label="Open admin page"
+              onclick="scrollToPercent(90); return false;">
+              <span class="lambda" style="--i:8; animation-name: scaleFromCenter;">
+                &lambda;
+              </span>
             </a>
+
             <span style="--i:5; animation-name: scaleFromLeft;">F</span>
           </h1>
           <p class="computer-engineer">
@@ -141,17 +153,14 @@
     </video>
 
     <section id="projects" class="scroll-delay"></section>
-
-    <section id="contact-anchor"></section>
-
-    <!-- Contact anchor -->
-    <section id="contact"></section>
     
     <section class="scroll-container">
       <div class="stuck-grid">
         <div class="grid-item">Sumo -bot MKII </div> <!-- 1 -->
 
-        <div class="grid-item special"><b>Contacts</b></div> <!-- 11 -->
+        <div id="contact-anchor" class="grid-item special">
+        <b>Contacts</b>
+        </div>
 
         <div class="grid-item">WiVou: Wi-Fi Voucher Dispenser</div> <!-- 3 -->
 
@@ -229,10 +238,8 @@
 
           <div class="grid-item long-text">
             <p>
-              Link is in the side menu<br>
-              Click My Portfolio to<br>
-              see Resume, can be found <br>
-              in Home <br>
+              Click :My Portfolio:<br>
+              in home to see Resume<br>
             </p>
           </div> <!-- 24 -->
 
@@ -258,8 +265,26 @@
         
         <div class="grid-item"> <img src="images/17.webp"> </div> <!-- 35 -->
 
-        <div class="grid-item"></div> <!-- 36 -->
-        <div class="grid-item">scroll-snap</div> <!-- 37 -->
+        <div class="grid-item long-text">
+            <p>
+              This is an enhanced version of the visitor counter that was<br>
+              once integrated into this portfolio website. It can be accessed<br>
+              by clicking the lambda icon on the home page.<br>
+              <br>
+              The system tracks hashed visitor IDs, first and<br>
+              latest visit timestamps, total hits, and unique visits.<br>
+              <br>
+              Hits count every visit regardless of frequency, while unique<br>
+              visits are limited to one count per visitor every 24 hours.<br>
+              <br>
+              The admin dashboard is active and running but<br>
+              it is reserved for authorized reviewers only.<br>
+            </p>
+        </div> <!-- 36 -->
+
+        <div class="grid-item special">
+          <div class="grid-item"> <img src="images/27.webp"> </div> <!-- 37 -->
+        </div>
 
         <div class="grid-item special">
           <div class="grid-item long-text">
@@ -297,11 +322,11 @@
             </p>
           </div> <!-- 39 -->
 
-        <div class="grid-item"> <img src="images/21.webp"> </div> <!-- 40 -->
+        <div class="grid-item">Visitor Counter Admin Dashboard</div> <!-- 40 -->
 
         <div class="grid-item"> <img src="images/11.webp"> </div> <!-- 41 -->
 
-        <div class="grid-item">:fullscreen</div> <!-- 42 -->
+        <div class="grid-item"> <img src="images/27.webp"> </div> <!-- 42 -->
         
         <div class="grid-item"> <img src="images/13.webp"> </div> <!-- 43 -->
 
@@ -345,6 +370,16 @@
   
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
+    function scrollToPercent(percent) {
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const target = scrollHeight * (percent / 100);
+
+      window.scrollTo({
+        top: target,
+        behavior: "smooth"
+      });
+    }
+
   document.addEventListener("DOMContentLoaded", () => {
     const menuBtn = document.getElementById("menu-btn");
     const sideMenu = document.getElementById("side-menu");
@@ -448,7 +483,6 @@
           drawer.classList.remove("open");
         }
       });
-
   });
   </script>
   

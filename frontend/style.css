@@ -511,57 +511,57 @@ p {
       font-size: clamp(2rem, 7vw, 9rem);
     }
 
-&:nth-of-type(1)  { animation-range: 77% 84.5% }  /* 1 — Sumobot name */
-&:nth-of-type(2)  { animation-range: 91% 96% }  /* 2 — Contacts */
-&:nth-of-type(3)  { animation-range: 46% 56% }  /* 3 — WIVOU */
-&:nth-of-type(4)  { animation-range: 53% 59% }  /* 4 — wi vou img 12 */
-&:nth-of-type(5)  { animation-range: 38% 42% }  /* 5 — dashboard camera view phone */
-&:nth-of-type(6)  { animation-range: 13.5% 17.5% }  /* 6 — This */
-&:nth-of-type(7)  { animation-range: 79.5% 85% }  /* 7 — Long Text SUMO BOT  */
-&:nth-of-type(8)  { animation-range: 85% 90% }  /* 8 — SUMOBOT pic 11 */
-&:nth-of-type(9)  { animation-range: 78% 83% }  /* 9 — SUMOBOT img 26  */
-&:nth-of-type(10) { animation-range: 41% 45% }  /* 10 — Motherboard */
-&:nth-of-type(11) { animation-range: 10% 14% }  /* 11 — Projects */
-&:nth-of-type(12) { animation-range: 35% 40% }  /* 12 — shredder name */
-&:nth-of-type(13) { animation-range: 72% 76% }  /* 13 — TWD name */
-&:nth-of-type(14) { animation-range: 14% 20% }  /* 14 — img 1 */
-&:nth-of-type(15) { animation-range: 60.5% 63.5% }  /* 15 — img 23 */
-&:nth-of-type(16) { animation-range: 67% 72% }  /* 16 — img 24 */
-&:nth-of-type(17) { animation-range: 65% 68% }  /* 17 — img 25 */
-&:nth-of-type(18) { animation-range: 60.5% 72% }  /* 18 — TicTacToe: Walking Dead */
-&:nth-of-type(19) { animation-range: 36% 40% }  /* 19 — straw shredder skeleton img 5 */
-&:nth-of-type(20) { animation-range: 90% 100% }  /* 20 — zaf.dominic@gmail.com */
-&:nth-of-type(21) { animation-range: 92% 100% }  /* 21 — GitHub */
-&:nth-of-type(22) { animation-range: 24% 33% }  /* 22 — Long text straw freelament */
-&:nth-of-type(23) { animation-range: 14% 18% }  /* 23 — is about */
-&:nth-of-type(24) { animation-range: 96% 100% }  /* 24 — IG */
-&:nth-of-type(25) { animation-range: 94% 100% }  /* 25 — STEAM */
-&:nth-of-type(26) { animation-range: 22% 33% }  /* 26 — straw-freelament */
-&:nth-of-type(27) { animation-range: 14% 20% }  /* 27 — ascent-override */
-&:nth-of-type(28) { animation-range: 57% 61% }  /* 28 — wivou img 14 */
-&:nth-of-type(29) { animation-range: 96% 96% }  /* 29 — inset */
-&:nth-of-type(30) { animation-range: 96% 96% }  /* 30 — @container */
-&:nth-of-type(31) { animation-range: 32% 36% }  /* 31 — Dashboard web interface img 10 */
-&:nth-of-type(32) { animation-range: 12% 16% }  /* 32 — wivou img 13 */
-&:nth-of-type(33) { animation-range: 48% 52% }  /* 33 — @scope */
-&:nth-of-type(34) { animation-range: 34% 38% }  /* 34 — Extruder heat chamber */
-&:nth-of-type(35) { animation-range: 39% 42% }  /* 35 — Dashboard camera view pc */
-&:nth-of-type(36) { animation-range: 24% 34% }  /* 36 — Capstone Project */
-&:nth-of-type(37) { animation-range: 98% 98% }  /* 37 — scroll-snap */
-&:nth-of-type(38) { animation-range: 18% 23% }  /* 38 — Long text paragraph */
-&:nth-of-type(39) { animation-range: 48% 54% }  /* 39 — Long text WIVOU */
-&:nth-of-type(40) { animation-range: 95% 95% }  /* 40 —  */
-&:nth-of-type(41) { animation-range: 11% 16% }  /* 41 — <img src="images/11.png"> */
-&:nth-of-type(42) { animation-range: 96% 96% }  /* 42 — :fullscreen */
-&:nth-of-type(43) { animation-range: 56% 60% }  /* 43 — wi vou img 13 */
-&:nth-of-type(44) { animation-range: 73% 78% }  /* 44 — Long text TWD */
-&:nth-of-type(45) { animation-range: 34% 37% }  /* 45 — Extruder end cap */
-&:nth-of-type(46) { animation-range: 29% 31% }  /* 46 — straw-freelament picture */
-&:nth-of-type(47) { animation-range: 98% 98% }  /* 47 — Is about fail*/
-&:nth-of-type(48) { animation-range: 35% 42% }  /* 48 — shredder picture */
-&:nth-of-type(49) { animation-range: 94% 94% }  /* 49 — emtpy = pag same percentage */
-&:nth-of-type(50) { animation-range: 43% 47% }  /* 50 — Extruder case */
-&:nth-of-type(51) { animation-range: 14% 19% }  /* 51 — Website */
+      &:nth-of-type(1)  { animation-range: 75% 82.5% }  /* 1 — Sumobot name */
+      &:nth-of-type(2)  { animation-range: 93% 98% }  /* 2 — Contacts */
+      &:nth-of-type(3)  { animation-range: 44% 54% }  /* 3 — WIVOU */
+      &:nth-of-type(4)  { animation-range: 51% 57% }  /* 4 — wi vou img 12 */
+      &:nth-of-type(5)  { animation-range: 36% 40% }  /* 5 — dashboard camera view phone */
+      &:nth-of-type(6)  { animation-range: 11.5% 15.5% }  /* 6 — This */
+      &:nth-of-type(7)  { animation-range: 77.5% 83% }  /* 7 — Long Text SUMO BOT  */
+      &:nth-of-type(8)  { animation-range: 83% 86% }  /* 8 — SUMOBOT pic 11 */
+      &:nth-of-type(9)  { animation-range: 76% 81% }  /* 9 — SUMOBOT img 26  */
+      &:nth-of-type(10) { animation-range: 39% 43% }  /* 10 — Motherboard */
+      &:nth-of-type(11) { animation-range: 8% 12% }  /* 11 — Projects */
+      &:nth-of-type(12) { animation-range: 33% 38% }  /* 12 — shredder name */
+      &:nth-of-type(13) { animation-range: 70% 74% }  /* 13 — TWD name */
+      &:nth-of-type(14) { animation-range: 12% 18% }  /* 14 — img 1 */
+      &:nth-of-type(15) { animation-range: 58.5% 61.5% }  /* 15 — img 23 */
+      &:nth-of-type(16) { animation-range: 65% 70% }  /* 16 — img 24 */
+      &:nth-of-type(17) { animation-range: 63% 66% }  /* 17 — img 25 */
+      &:nth-of-type(18) { animation-range: 58.5% 70% }  /* 18 — TicTacToe: Walking Dead */
+      &:nth-of-type(19) { animation-range: 34% 38% }  /* 19 — straw shredder skeleton img 5 */
+      &:nth-of-type(20) { animation-range: 92% 100% }  /* 20 — zaf.dominic@gmail.com */
+      &:nth-of-type(21) { animation-range: 94% 100% }  /* 21 — GitHub */
+      &:nth-of-type(22) { animation-range: 22% 31% }  /* 22 — Long text straw freelament */
+      &:nth-of-type(23) { animation-range: 12% 16% }  /* 23 — is about */
+      &:nth-of-type(24) { animation-range: 96% 100% }  /* 24 — Long text */
+      &:nth-of-type(25) { animation-range: 94% 100% }  /* 25 — LinkedIN */
+      &:nth-of-type(26) { animation-range: 20% 31% }  /* 26 — straw-freelament */
+      &:nth-of-type(27) { animation-range: 12% 18% }  /* 27 — ascent-override */
+      &:nth-of-type(28) { animation-range: 55% 59% }  /* 28 — wivou img 14 */
+      &:nth-of-type(29) { animation-range: 94% 94% }  /* 29 — inset */
+      &:nth-of-type(30) { animation-range: 94% 94% }  /* 30 — @container */
+      &:nth-of-type(31) { animation-range: 30% 34% }  /* 31 — Dashboard web interface img 10 */
+      &:nth-of-type(32) { animation-range: 10% 14% }  /* 32 — wivou img 13 */
+      &:nth-of-type(33) { animation-range: 46% 50% }  /* 33 — @scope */
+      &:nth-of-type(34) { animation-range: 32% 36% }  /* 34 — Extruder heat chamber */
+      &:nth-of-type(35) { animation-range: 37% 40% }  /* 35 — Dashboard camera view pc */
+      &:nth-of-type(36) { animation-range: 88% 94.5% }  /* 36 — LongText Visitor Counter */
+      &:nth-of-type(37) { animation-range: 86% 89% }  /* 37 — img 27 */
+      &:nth-of-type(38) { animation-range: 16% 21% }  /* 38 — Long text paragraph */
+      &:nth-of-type(39) { animation-range: 46% 52% }  /* 39 — Long text WIVOU */
+      &:nth-of-type(40) { animation-range: 89% 91% }  /* 40 — Visitor Counter Admin Dashboard */
+      &:nth-of-type(41) { animation-range: 9% 14% }  /* 41 — <img src="images/11.png"> */
+      &:nth-of-type(42) { animation-range: 89% 93.5% }  /* 42 — img 27 */
+      &:nth-of-type(43) { animation-range: 54% 58% }  /* 43 — wi vou img 13 */
+      &:nth-of-type(44) { animation-range: 71% 76% }  /* 44 — Long text TWD */
+      &:nth-of-type(45) { animation-range: 32% 35% }  /* 45 — Extruder end cap */
+      &:nth-of-type(46) { animation-range: 27% 29% }  /* 46 — straw-freelament picture */
+      &:nth-of-type(47) { animation-range: 96% 96% }  /* 47 — Is about fail*/
+      &:nth-of-type(48) { animation-range: 33% 40% }  /* 48 — shredder picture */
+      &:nth-of-type(49) { animation-range: 92% 92% }  /* 49 — emtpy = pag same percentage */
+      &:nth-of-type(50) { animation-range: 41% 45% }  /* 50 — Extruder case */
+      &:nth-of-type(51) { animation-range: 12% 17% }  /* 51 — Website */
 
 
     @supports (animation-timeline: scroll()) {
@@ -577,7 +577,7 @@ p {
       &:nth-of-type(9) { grid-area: 3/2 }
       &:nth-of-type(10) { grid-area: 3/2 }
       &:nth-of-type(11) { grid-area: 3/3 }
-      &:nth-of-type(12) { grid-area: 3/4 }
+      &:nth-of-type(12) { grid-area: 3/3 }
       &:nth-of-type(13) { grid-area: 2/2 }
       &:nth-of-type(14) { grid-area: 4/2 }
       &:nth-of-type(15) { grid-area: 3/3 }
@@ -601,19 +601,19 @@ p {
       &:nth-of-type(33) { grid-area: 2/2 }
       &:nth-of-type(34) { grid-area: 2/2 }
       &:nth-of-type(35) { grid-area: 3/3 }
-      &:nth-of-type(36) { grid-area: 2/4 }
+      &:nth-of-type(36) { grid-area: 3/3 }
       &:nth-of-type(37) { grid-area: 3/1 }
       &:nth-of-type(38) { grid-area: 3/2 }
       &:nth-of-type(39) { grid-area: 3/3 }
-      &:nth-of-type(40) { grid-area: 3/4 }
+      &:nth-of-type(40) { grid-area: 2/3 }
       &:nth-of-type(41) { grid-area: 1/1 }
-      &:nth-of-type(42) { grid-area: 1/2 }
+      &:nth-of-type(42) { grid-area: 2/1 }
       &:nth-of-type(43) { grid-area: 3/2 }
       &:nth-of-type(44) { grid-area: 3/2 }
       &:nth-of-type(45) { grid-area: 4/1 }
       &:nth-of-type(46) { grid-area: 4/2 }
       &:nth-of-type(47) { grid-area: 4/3 }
-      &:nth-of-type(48) { grid-area: 4/4 }
+      &:nth-of-type(48) { grid-area: 4/3 }
       &:nth-of-type(49) { grid-area: 3/1 }
       &:nth-of-type(50) { grid-area: 3/3 }
       &:nth-of-type(51) { grid-area: 3/3 }
@@ -647,11 +647,11 @@ p {
 
 .scroll-container {
   position: relative;
-  height: 400vh;   /* controls scroll distance for animation */
+  height: 800vh;   /* controls scroll distance for animation */
 }
 
 .scroll-delay {
-  height: 1500vh;  /* SCROLL DELAY HERE — change this */
+  height: 3000vh;  /* SCROLL DELAY HERE — change this if you want to add more in the scroll animation */
 }
 
                                                             /* CSS animation */
@@ -732,10 +732,8 @@ p {
   margin: 0;
 }
 
-#contact {
-  height: 1px;
-  margin-top: -135vh;
-  scroll-margin-top: 100px;
+#contacts {
+  scroll-margin-top: 500px;
 }
 
 #side-menu p {
