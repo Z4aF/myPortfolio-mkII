@@ -651,7 +651,7 @@ p {
 }
 
 .scroll-delay {
-  height: 3000vh;  /* SCROLL DELAY HERE — change this if you want to add more in the scroll animation */
+  height: 1500vh;  /* SCROLL DELAY HERE — change this if you want to add more in the scroll animation */
 }
 
                                                             /* CSS animation */
