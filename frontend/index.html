@@ -29,11 +29,7 @@
 
         <hr>
           <ul class="contact-links">
-            <li>
-              <a href="mailto:zaf.dominic@gmail.com?subject=Job Opportunity&body=Hi Zaf, I saw your portfolio...">
-                Email
-              </a>
-            </li>
+            <li><a href="#" id="contactBtn">Contact Me</a></li>
             <li><a href="https://www.linkedin.com/in/dominic-z-218351407/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
             <li><a href="https://github.com/z4aF" target="_blank" rel="noopener noreferrer">GitHub</a></li>
           </ul>
@@ -43,6 +39,39 @@
     <p>Visitors: <span id="counter">Loading...</span></p>
     
   </nav>
+
+      <div id="contactDrawer" class="right-drawer">
+
+          <div class="drawer-top">
+            <span id="closeDrawer" class="close-btn">&times;</span>
+          </div>
+
+          <div class="drawer-body">
+
+            <div class="drawer-center">
+
+              <h2>Contact Me</h2>
+
+              <form action="https://formsubmit.co/zaf.dominic@gmail.com" method="POST">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="phone" placeholder="Phone :optional:">
+
+                <select name="type" required>
+                  <option value="">Reason for Contact</option>
+                  <option value="Job Opportunity">Job Opportunity</option>
+                  <option value="Project Inquiry">Project Inquiry</option>
+                  <option value="Admin Access">Admin Dashboard Access</option>
+                  <option value="General">General Message</option>
+                </select>
+
+                <textarea name="message" placeholder="Message" required></textarea>
+
+                <button type="submit">Send</button>
+              </form>
+            </div>
+          </div>   
+      </div>
 
   <!-- Fixed Home Video Background -->
    
@@ -56,7 +85,7 @@
         <div class="content center">
           <h1 class="text-scale">
             <span style="--i:1; animation-name: scaleFromRight;">Z</span>
-            <a href="admin.html" class="lambda-link" aria-label="Open admin page">
+            <a href="#contact-anchor" class="lambda-link" aria-label="Open admin page">
               <span class="lambda" style="--i:8; animation-name: scaleFromCenter;">&lambda;</span>
             </a>
             <span style="--i:5; animation-name: scaleFromLeft;">F</span>
@@ -229,7 +258,7 @@
         
         <div class="grid-item"> <img src="images/17.webp"> </div> <!-- 35 -->
 
-        <div class="grid-item">Capstone Project</div> <!-- 36 -->
+        <div class="grid-item"></div> <!-- 36 -->
         <div class="grid-item">scroll-snap</div> <!-- 37 -->
 
         <div class="grid-item special">
@@ -309,6 +338,7 @@
         <div class="grid-item special"><b>Website</b></div> <!-- 51 -->
         
       </div>
+
     </section>
 
   </div>
@@ -399,6 +429,26 @@
           counter.innerText = "N/A";
         }
       });
+
+      const drawer = document.getElementById("contactDrawer");
+      const openBtn = document.getElementById("contactBtn"); // side menu link
+      const closeBtn = document.getElementById("closeDrawer");
+
+      openBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        drawer.classList.add("open");
+      });
+
+      closeBtn.addEventListener("click", () => {
+        drawer.classList.remove("open");
+      });
+
+      window.addEventListener("click", (e) => {
+        if (e.target === drawer) {
+          drawer.classList.remove("open");
+        }
+      });
+
   });
   </script>
   

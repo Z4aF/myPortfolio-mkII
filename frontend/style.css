@@ -522,7 +522,7 @@ p {
 &:nth-of-type(9)  { animation-range: 78% 83% }  /* 9 — SUMOBOT img 26  */
 &:nth-of-type(10) { animation-range: 41% 45% }  /* 10 — Motherboard */
 &:nth-of-type(11) { animation-range: 10% 14% }  /* 11 — Projects */
-&:nth-of-type(12) { animation-range: 26% 31% }  /* 12 — shredder name */
+&:nth-of-type(12) { animation-range: 35% 40% }  /* 12 — shredder name */
 &:nth-of-type(13) { animation-range: 72% 76% }  /* 13 — TWD name */
 &:nth-of-type(14) { animation-range: 14% 20% }  /* 14 — img 1 */
 &:nth-of-type(15) { animation-range: 60.5% 63.5% }  /* 15 — img 23 */
@@ -558,7 +558,7 @@ p {
 &:nth-of-type(45) { animation-range: 34% 37% }  /* 45 — Extruder end cap */
 &:nth-of-type(46) { animation-range: 29% 31% }  /* 46 — straw-freelament picture */
 &:nth-of-type(47) { animation-range: 98% 98% }  /* 47 — Is about fail*/
-&:nth-of-type(48) { animation-range: 25% 31% }  /* 48 — shredder picture */
+&:nth-of-type(48) { animation-range: 35% 42% }  /* 48 — shredder picture */
 &:nth-of-type(49) { animation-range: 94% 94% }  /* 49 — emtpy = pag same percentage */
 &:nth-of-type(50) { animation-range: 43% 47% }  /* 50 — Extruder case */
 &:nth-of-type(51) { animation-range: 14% 19% }  /* 51 — Website */
@@ -757,4 +757,119 @@ p {
   display: inline-block;
   cursor: pointer;
   transition: color 0.25s ease, text-shadow 0.25s ease, transform 0.25s ease;
+} 
+
+                                                            /* Contact Me */
+
+.right-drawer {
+  position: fixed;
+  top: 0;
+  right: -450px; /* hidden */
+  width: 400px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  transition: right 0.3s ease;
+  z-index: 9999;
+  padding: 20px;
+
+  font-family: 'K12HL2', sans-serif;
+  color: gold;
+  letter-spacing: 2px;
+
+  display: block;
 }
+
+.right-drawer.open {
+  right: 0;
+}
+
+.right-drawer input,
+.right-drawer textarea {
+  width: 100%;
+  margin: 8px 0;
+  border-radius: 5px;
+
+  background: transparent;
+  border: 1px solid gold;
+  color: gold;
+  font-family: 'K12HL2', sans-serif;
+  letter-spacing: 1px;
+  padding: 10px;
+
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 187, 0, 0.6);
+}
+
+.right-drawer select {
+  width: 100%;
+  margin: 8px 0;
+
+  color: gold;
+  background: transparent;
+  border: 1px solid gold;
+
+  font-family: 'K12HL2', sans-serif;
+  letter-spacing: 2px;
+  padding: 10px;
+
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 187, 0, 0.6);
+}
+
+.right-drawer option {
+  background: black;
+  color: gold;
+}
+
+.close-btn {
+  font-size: 28px;
+  cursor: pointer;
+  color: gold;
+  transition: 0.2s;
+}
+
+.close-btn:hover {
+  color: rgb(255, 145, 0);
+  text-shadow: 0 0 8px rgba(255, 145, 0, 0.6);
+}
+
+.right-drawer button {
+  background: transparent;
+  border: 2px solid gold;
+  color: gold;
+  font-family: 'K12HL2', sans-serif;
+  letter-spacing: 2px;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.right-drawer button:hover {
+  color: rgb(255, 145, 0);
+  border-color: rgb(255, 145, 0);
+  box-shadow: 
+    0 0 10px rgba(255, 187, 0, 0.9),
+    0 0 18px rgba(255, 145, 0, 0.8);
+  transform: scale(1.05);
+}
+
+.drawer-top {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+.drawer-body {
+  height: calc(100% - 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drawer-body form {
+  width: 100%;
+  max-width: 320px;
+}
+
+                                                            /* Contact Me */
