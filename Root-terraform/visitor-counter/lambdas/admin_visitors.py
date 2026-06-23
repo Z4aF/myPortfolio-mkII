@@ -11,19 +11,6 @@ def get_visitors_table():
 
 
 def lambda_handler(event, context):
-    visitors_table = get_visitors_table()
-
-    allowed_origins = [
-        "https://pdzaf.site",
-        "https://www.pdzaf.site",
-    ]
-
-    origin = event.get("headers", {}).get("origin", "")
-
-    if origin in allowed_origins:
-        cors_origin = origin
-    else:
-        cors_origin = "https://pdzaf.site"
 
     try:
         items = []
@@ -51,7 +38,7 @@ def lambda_handler(event, context):
         return {
             "statusCode": 200,
             "headers": {
-                "Access-Control-Allow-Origin": cors_origin,
+                "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Headers": "Content-Type",
                 "Access-Control-Allow-Methods": "GET,OPTIONS",
                 "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0"
