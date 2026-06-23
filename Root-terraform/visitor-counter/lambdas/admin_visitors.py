@@ -11,6 +11,7 @@ def get_visitors_table():
 
 
 def lambda_handler(event, context):
+    visitors_table = get_visitors_table()
 
     try:
         items = []
