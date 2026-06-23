@@ -95,7 +95,7 @@ def lambda_handler(event, context):
     return {
         "statusCode": 200,
         "headers": {
-            "Access-Control-Allow-Origin": "https://d177m2z4znivqh.cloudfront.net",
+            "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Headers": "Content-Type,X-Visitor-Id",
             "Access-Control-Allow-Methods": "GET,OPTIONS",
             "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0"
