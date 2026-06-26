@@ -10,10 +10,6 @@ def get_dynamodb():
     return boto3.resource("dynamodb")
 
 
-def get_counter_table():
-    return get_dynamodb().Table("resume-visitor-counter")
-
-
 def get_visitors_table():
     return get_dynamodb().Table("resume-visitors")
 
@@ -38,7 +34,6 @@ def lambda_handler(event, context):
 
 
     visitors_table = get_visitors_table()
-    counter_table = get_counter_table()
 
     headers = event.get("headers", {}) or {}
     visitor_id = headers.get("x-visitor-id") or headers.get("X-Visitor-Id")
@@ -93,18 +88,24 @@ def lambda_handler(event, context):
                 }
             )
 
-    if increment:
-        response = counter_table.update_item(
-            Key={"id": "visits"},
-            UpdateExpression="ADD #c :inc",
-            ExpressionAttributeNames={"#c": "count"},
-            ExpressionAttributeValues={":inc": 1},
-            ReturnValues="UPDATED_NEW"
+    #
+    items = []
+    response = visitors_table.scan(
+        ProjectionExpression="counted_visit_count"
+    )
+    items.extend(response.get("Items", []))
+
+    while "LastEvaluatedKey" in response:
+        response = visitors_table.scan(
+            ProjectionExpression="counted_visit_count",
+            ExclusiveStartKey=response["LastEvaluatedKey"]
         )
-        total = int(response["Attributes"]["count"])
-    else:
-        existing_count = counter_table.get_item(Key={"id": "visits"})
-        total = int(existing_count["Item"]["count"])
+        items.extend(response.get("Items", []))
+
+    total = sum(
+        int(item.get("counted_visit_count", 0))
+        for item in items
+    )
 
     return {
         "statusCode": 200,
