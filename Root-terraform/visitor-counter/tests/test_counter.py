@@ -18,34 +18,38 @@ class FakeVisitorsTable:
     def put_item(self, Item):
         self.put_called = True
         self.last_put_item = Item
+        self.existing_item = Item
         return {"ResponseMetadata": {"HTTPStatusCode": 200}}
 
     def update_item(self, **kwargs):
         self.update_called = True
         self.last_update_kwargs = kwargs
+
+        expr = kwargs.get("UpdateExpression", "")
+
+        if "counted_visit_count" in expr:
+            self.existing_item["counted_visit_count"] += 1
+
         return {"ResponseMetadata": {"HTTPStatusCode": 200}}
 
+    def scan(self, **kwargs):
+        if self.existing_item is None:
+            return {"Items": []}
 
-class FakeCounterTable:
-    def __init__(self, count=0):
-        self.count = count
-        self.update_called = False
-
-    def update_item(self, **kwargs):
-        self.update_called = True
-        self.count += 1
-        return {"Attributes": {"count": self.count}}
-
-    def get_item(self, Key):
-        return {"Item": {"count": self.count}}
+        return {
+            "Items": [
+                {
+                    "counted_visit_count":
+                        self.existing_item.get("counted_visit_count", 1)
+                }
+            ]
+        }
 
 
 def test_new_visitor_increments_global_counter(monkeypatch):
     visitors_table = FakeVisitorsTable(existing_item=None)
-    counter_table = FakeCounterTable(count=10)
 
     monkeypatch.setattr("lambdas.counter.get_visitors_table", lambda: visitors_table)
-    monkeypatch.setattr("lambdas.counter.get_counter_table", lambda: counter_table)
     monkeypatch.setattr("lambdas.counter.time.time", lambda: 1700000000)
 
     event = {
@@ -63,8 +67,7 @@ def test_new_visitor_increments_global_counter(monkeypatch):
     assert response["statusCode"] == 200
     assert visitors_table.put_called is True
     assert visitors_table.update_called is False
-    assert counter_table.update_called is True
-    assert body["count"] == 11
+    assert body["count"] == 1
 
 
 def test_existing_visitor_within_cooldown_does_not_increment_global_counter(monkeypatch):
@@ -80,10 +83,8 @@ def test_existing_visitor_within_cooldown_does_not_increment_global_counter(monk
             "counted_visit_count": 1
         }
     )
-    counter_table = FakeCounterTable(count=10)
 
     monkeypatch.setattr("lambdas.counter.get_visitors_table", lambda: visitors_table)
-    monkeypatch.setattr("lambdas.counter.get_counter_table", lambda: counter_table)
     monkeypatch.setattr("lambdas.counter.time.time", lambda: now)
 
     event = {
@@ -103,8 +104,7 @@ def test_existing_visitor_within_cooldown_does_not_increment_global_counter(monk
     assert response["statusCode"] == 200
     assert visitors_table.put_called is False
     assert visitors_table.update_called is True
-    assert counter_table.update_called is False
-    assert body["count"] == 10
+    assert body["count"] == 1
 
 
 def test_existing_visitor_after_cooldown_increments_global_counter(monkeypatch):
@@ -120,10 +120,8 @@ def test_existing_visitor_after_cooldown_increments_global_counter(monkeypatch):
             "counted_visit_count": 1
         }
     )
-    counter_table = FakeCounterTable(count=10)
 
     monkeypatch.setattr("lambdas.counter.get_visitors_table", lambda: visitors_table)
-    monkeypatch.setattr("lambdas.counter.get_counter_table", lambda: counter_table)
     monkeypatch.setattr("lambdas.counter.time.time", lambda: now)
 
     event = {
@@ -142,16 +140,13 @@ def test_existing_visitor_after_cooldown_increments_global_counter(monkeypatch):
 
     assert response["statusCode"] == 200
     assert visitors_table.update_called is True
-    assert counter_table.update_called is True
-    assert body["count"] == 11
+    assert body["count"] == 1
 
 
 def test_hash_ip_fallback_used_when_header_missing(monkeypatch):
     visitors_table = FakeVisitorsTable(existing_item=None)
-    counter_table = FakeCounterTable(count=5)
 
     monkeypatch.setattr("lambdas.counter.get_visitors_table", lambda: visitors_table)
-    monkeypatch.setattr("lambdas.counter.get_counter_table", lambda: counter_table)
     monkeypatch.setattr("lambdas.counter.time.time", lambda: 1700000000)
 
     event = {
