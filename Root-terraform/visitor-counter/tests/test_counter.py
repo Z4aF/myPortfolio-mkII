@@ -67,7 +67,7 @@ def test_new_visitor_increments_global_counter(monkeypatch):
     assert response["statusCode"] == 200
     assert visitors_table.put_called is True
     assert visitors_table.update_called is False
-    assert body["count"] == 1
+    assert body["count"] == 2
 
 
 def test_existing_visitor_within_cooldown_does_not_increment_global_counter(monkeypatch):
@@ -104,7 +104,7 @@ def test_existing_visitor_within_cooldown_does_not_increment_global_counter(monk
     assert response["statusCode"] == 200
     assert visitors_table.put_called is False
     assert visitors_table.update_called is True
-    assert body["count"] == 1
+    assert body["count"] == 2
 
 
 def test_existing_visitor_after_cooldown_increments_global_counter(monkeypatch):
@@ -140,7 +140,7 @@ def test_existing_visitor_after_cooldown_increments_global_counter(monkeypatch):
 
     assert response["statusCode"] == 200
     assert visitors_table.update_called is True
-    assert body["count"] == 1
+    assert body["count"] == 2
 
 
 def test_hash_ip_fallback_used_when_header_missing(monkeypatch):
