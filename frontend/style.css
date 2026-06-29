@@ -369,9 +369,9 @@ p {
 
 /* HOME SECTION FIX */
 .video-section.home.fixed-center {
-  position: relative;        /* Keeps home video within document flow */
+  position: relative;       
   width: 100%;
-  height: 100vh;             /* Full screen height */
+  height: 100vh;            
   overflow: hidden;
 }
 
@@ -383,14 +383,14 @@ p {
   transform: translate(-50%, -50%);
   width: 100vw;
   height: 100vh;
-  object-fit: cover;         /* fills screen without distortion */
+  object-fit: cover;        
   z-index: -1;
 }
 
 /* Home text content always on top of video */
 #home {
   position: relative;
-  height: 100vh;             /* ensure no extra white space */
+  height: 100vh;             
   z-index: 1;
   display: flex;
   justify-content: center;
@@ -400,11 +400,11 @@ p {
 /* Responsive Home Text Layout */
 #home .content.center {
   position: absolute;
-  top: 40vh;                 /* roughly top third of screen */
+  top: 40vh;                
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  width: 90%;                /* prevents overflow on small screens */
+  width: 90%;               
   max-width: 900px;
 }
 
@@ -425,14 +425,14 @@ p {
 /* Slight animation scale fix for small screens */
 @media (max-width: 768px) {
   #home .content.center {
-    top: 30vh; /* slightly lower for smaller screens */
+    top: 30vh; 
   }
 }
 
 /* For very small phones */
 @media (max-width: 480px) {
   #home .content.center {
-    top: 35vh; /* push down a bit to stay visible */
+    top: 35vh; 
   }
   #home h1 {
     font-size: clamp(2.5rem, 12vw, 6rem);
@@ -681,7 +681,7 @@ p {
     animation: type 3s steps(60) forwards,
                blink .7s step-end infinite;
     animation-delay: var(--d);
-    opacity: 1;        /* becomes visible during animation */
+    opacity: 1;        
 }
 
 /* Typewriter keyframes */
@@ -700,8 +700,8 @@ p {
 
 /* Make every grid item a "textbox" */
 .grid-item .textbox {
-  border: 2px solid #fff;      /* white border */
-  background-color: rgba(0,0,0,0.5); /* semi-transparent background */
+  border: 2px solid #fff;      
+  background-color: rgba(0,0,0,0.5); 
   padding: 15px 20px;
   border-radius: 12px;
   text-align: center;
