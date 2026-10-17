@@ -1,26 +1,28 @@
-import json
-import boto3
-import hashlib
-import time
+import json     # Turns python data into JSON string
+import boto3    # Communicate with AWS
+import hashlib  # hash the visitor's ID
+import time     # get the current UNIX timestamp (but why?)
 
-COOLDOWN = 24 * 60 * 60  # 24 hours in seconds
+COOLDOWN = 24 * 60 * 60  # 24 hours in seconds, which means one visitor per cooldown
 
 
-def get_dynamodb():
-    return boto3.resource("dynamodb")
+def get_dynamodb():  # helper function that creates connection to DynamoDB
+    return boto3.resource("dynamodb") # boto3.resource("dynamodb") produces a value, and 'return' sends that value back to whoever called get_dynamodb().
 
 
 def get_visitors_table():
-    return get_dynamodb().Table("resume-visitors")
+    return get_dynamodb().Table("resume-visitors") #demands DynamoDB table called 'resume-visitors'
 
 
 def hash_ip(ip):
-    return hashlib.sha256(ip.encode()).hexdigest()
+    return hashlib.sha256(ip.encode()).hexdigest() #Take the IP and turn it into a consistent identifier.
 
 
-def lambda_handler(event, context):
+def lambda_handler(event, context): # AWS Lambda calls this function when your Lambda runs
+                                    # Event "Here is information about the HTTP request."
+                                    # Context "Here is information about this Lambda execution."
 
-    allowed_origins = [
+    allowed_origins = [            # This establishes which websites are allowed to make requests.
         "https://pdzaf.site",
         "https://www.pdzaf.site",
     ]
